@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title><center><h1>Registrate</h1></center>
+</head>
+<body>
+    <center>
+        <form class="form" method="post">
+            {% csrf_token %}
+            <label for="nom">Nombre</label>
+            <input type="text" name="nom" placeholder="Nombre"><br>
+            <label for="mail">Correo</label>
+            <input type="text" name="mail" placeholder="Correo"><br>
+            <label for="pass">Contrasena</label>
+            <input type="password" name="pass" placeholder="Contrasena"><br>
+            <button type="reset">restablecer</button>
+            <button type="submit">registrarse</button>
+        </form>
+    </center>
+</body>
+</html>
