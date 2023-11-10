@@ -17,7 +17,7 @@ def regis(request):
         correo=request.POST['mail']
         contra=request.POST['pass']
         persona(nombre=nombre, mail=correo, pas=contra).save()
-        messages.success(request, 'el usuario se creo exitosamente')
+        messages.success(request, 'El usuario se creo exitosamente')
         return render(request, 'registro.html')
     else:   
         return render(request, 'registro.html')

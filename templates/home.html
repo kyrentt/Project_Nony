@@ -1,103 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>USMessage</title>
-    <style>
-        .buscador{
-            display: flex;
-            justify-content: center;
-        }
-    </style>
-    <style>
-        .publicacion{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-    <style>
-        .notificaciones{
-            display: flex;
-            justify-content: end;
-        }
-    </style>
-    <style>
-        .primerapublicacion{
-            display: flex;
-            justify-content: end;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>USMessage</h1>
-        <div class="notificaciones">
-            <nav>
-                <a href="#">Notificaciones</a>
-            </nav>     
-        </div>
-        <div class="buscador">
-            <input type="text" placeholder="Buscar">
-            <button>Buscar</button>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Amigos</a></li>
-                <li><a href="#">Perfil</a></li>
-                <li><a href="#">Configuración</a></li>
-                <li><a href='{% url "salir" %}'>Cerrar Sesion</a></li>
-            </ul>
-        </nav>
-        <div class="fotoperfil">
-            <img src="tufotodeperfil.jpg" alt="Tu foto de perfil">
-        </div>
-        <hr>
-    </header>
+{% extends 'plantilla.html' %} {% block content %}
 
-    <main>
-        <section class="publicacion">
-            <div class="perfil">
-                <img src="perfil-aleatorio.jpg" alt="Foto de perfil">
-                <h3>Usuario Aleatorio</h3>
-                <p>@usuario_aleatorio</p>
-            </div>
-            <img src="imagen-publicacion.jpg" alt="Imagen de la publicación">
-            <p>Descripción de la publicación. ¡Aquí puedes escribir lo que quieras!</p>
-        </section>
-        <section class="primerapublicacion">
-            <h2>Sube tu Primera Publicación</h2>
-            <p>¡Comparte tus momentos con tus amigos! <br><br></p>
-            <button>Subir Publicación</button>
-        </section>
-        <section>
-            <h2>Sugerencias de Amigos</h2>
-            <ul>
-                <li>
-                    <img src="imagen1.jpg" alt="Foto 1">
-                    <h3>Nombre de Usuario 1</h3>
-                    <p>@usuario1</p>
-                    <button>Enviar Solicitud</button>
-                </li>
-                <li>
-                    <img src="imagen2.jpg" alt="Foto 2">
-                    <h3>Nombre de Usuario 2</h3>
-                    <p>@usuario2</p>
-                    <button>Enviar Solicitud</button>
-                </li>
-                <li>
-                    <img src="imagen3.jpg" alt="Foto 3">
-                    <h3>Nombre de Usuario 3</h3>
-                    <p>@usuario3</p>
-                    <button>Enviar Solicitud</button>
-                </li>
-                <li>
-                    <img src="imagen4.jpg" alt="Foto 4">
-                    <h3>Nombre de Usuario 4</h3>
-                    <p>@usuario4</p>
-                    <button>Enviar Solicitud</button>
-                </li>
-            </ul>
-        </section>       
-    </main>
-</body>
-</html>
+<h1>Posts</h1>
+
+<ul>
+  {% for post in object_list %}
+  <li>
+    <a href="{% url 'article-detail' post.pk %}">{{ post.titulo }}</a> -
+    {{post.autor.first_name }} {{ post.autor.last_name}}<br />
+    {{ post.cuerpo }}
+  </li>
+  {% endfor%}
+</ul>
+
+{% endblock %}

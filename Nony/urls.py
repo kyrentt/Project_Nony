@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Nony.views import pag, regis, login, salir
+from Nony.views import pag, regis, login, salir, home
 
 
 urlpatterns = [
@@ -25,4 +25,5 @@ urlpatterns = [
     path('reg/', regis, name='regis'),
     path('salir/', salir, name='salir'),
     path('login/', login, name='log'),
+    path('inicio/', include('Usuarios.urls')),
 ]
