@@ -20,3 +20,29 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("article-detail", args=(str(self.id)))
     
+#etiquetas
+
+class e_g(models.Model):
+    Gamer=models.TextField()
+    correo=models.EmailField()
+
+class e_l(models.Model):
+    LQBTQ=models.TextField()
+    correo=models.EmailField()
+
+class e_m(models.Model):
+    Musica=models.TextField()
+    correo=models.EmailField()
+
+class e_o(models.Model):
+    Otaku=models.TextField()
+    correo=models.EmailField()
+
+class e_d(models.Model):
+    Deportista=models.TextField()
+    correo=models.EmailField()
+
+#Amigos
+
+
+    

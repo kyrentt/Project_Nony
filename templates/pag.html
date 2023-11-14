@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Document</title>
-    <center>
-        <h1>
-            Bienvenido
-        </h1>
-    </center>
-</head>
-<body>
-    <center>
-        <a href="{% url 'regis' %}">Registrarse</a><br>
-        <a href='{% url "log" %}'>Iniciar Sesion</a>  
-    </center>
-</body>
-</html>
+{% extends 'plantilla copy.html' %} {% block content %}
+<center>
+    <h1>Bienvenido a USMessage</h1>
+    <a href="{% url 'regis' %}">Registrarse</a><br>
+    <a href='{% url "log" %}'>Iniciar Sesion</a>  
+</center>
+{% endblock %}

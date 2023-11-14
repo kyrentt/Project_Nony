@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Inicio de Sesion</title>
+{% extends 'plantilla.html' %} {% block content %}
+<center><h1>Inicie Sesion</h1></center>
+<form method="post">
     <center>
-        <h1>
-            Inicio de sesion
-        </h1>
+        {% csrf_token %}
+        <label for="e_mail">Correo</label>
+        <input type="email" name='e_mail' pattern=".+@(usm.cl|sansano.cl)" required title="solo se permiten correos del dominio @usm.cl o @sansano.cl"><br>
+        <label for="password">contrasena</label>
+        <input type="password" name='password' maxlength="10" required><br> 
+        <button type="submit">iniciar sesion</button>
+        <button type="reset">restablecer</button><br>
+        <a href="{% url 'regis' %}">Registrarse</a><br>
+        <a href="{% url 'pag' %}">Volver a la pagina principal</a><br>
+	    {% if messages %}
+	    <ul class="messages">
+    		{% for message in messages %}
+    		<li{% if message.succes %} class="{{ message.succes }}"{% endif %}>{{ message }}</li>
+    		{% endfor %}
+	</ul>
+	{% endif %}
     </center>
-</head>
-<body>
-    <form method="post">
-        <center>
-            {% csrf_token %}
-            <label for="e_mail">Correo</label>
-            <input type="email" name='e_mail' pattern=".+@(usm.cl|sansano.cl)" required title="solo se permiten correos del dominio @usm.cl o @sansano.cl"><br>
-            <label for="password">contrasena</label>
-            <input type="password" name='password' maxlength="10" required><br> 
-            <button type="submit">iniciar sesion</button>
-            <button type="reset">restablecer</button><br>
-            <a href="{% url 'regis' %}">Registrarse</a><br>
-            <a href="{% url 'pag' %}">Volver a la pagina principal</a><br>
-            {% if messages %}
-                {% for msg in messages %}
-                <b>{{msg}}</b>
-                {% endfor %}
-                {% endif %}
-        </center>
-    </form>
-</body>
-</html>
+</form>
+{% endblock %}

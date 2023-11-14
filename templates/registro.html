@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title><center><h1>Registrate</h1></center>
-</head>
-<body>
-    <center>
-        <form class="form" method="post">
-            {% csrf_token %}
-            <label for="nom">Nombre</label>
-            <input type="text" name="nom" placeholder="Nombre" required maxlength="30"><br>
-            <label for="mail">Correo</label>
-            <input type="email" name="mail" placeholder="Correo" pattern=".+@(usm.cl|sansano.cl)" required><br>
-            <label for="pass">Contrasena</label>
-            <input type="password" name="pass" placeholder="Contrasena" required maxlength="10"><br>
-            <button type="reset">restablecer</button>
-            <button type="submit">registrarse</button><br>
-            <a href="{% url 'log' %}">Iniciar sesion</a><br>
-            <a href="{% url 'pag' %}">Volver a la pagina principal</a><br>
-            {% if messages %}
-                {% for msg in messages %}
-                <b>{{msg}}</b>
-            {% endfor %}
-            {% endif %}
-        </form>
-    </center>
-</body>
-</html>
+{% extends 'plantilla copy.html' %} {% block content %}
+<center>
+    <h1>Registrate</h1>
+    <form class="form" method="post">
+        {% csrf_token %}
+        <label for="nom">Nombre</label>
+        <input type="text" name="nom" placeholder="Nombre" required maxlength="30"><br>
+        <label for="mail">Correo</label>
+        <input type="email" name="mail" placeholder="Correo" pattern=".+@(usm.cl|sansano.cl)" required><br>
+        <label for="pass">Contrasena</label>
+        <input type="password" name="pass" placeholder="Contrasena" required maxlength="10"><br>
+        <button type="reset">restablecer</button>
+        <button type="submit">registrarse</button><br>
+        <a href="{% url 'log' %}">Iniciar sesion</a><br>
+        <a href="{% url 'pag' %}">Volver a la pagina principal</a><br>
+        {% if messages %}
+            {% for msg in messages %}
+            <b>{{msg}}</b>
+        {% endfor %}
+        {% endif %}
+    </form>
+</center>
+{% endblock %}
