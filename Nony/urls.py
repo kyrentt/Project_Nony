@@ -26,4 +26,5 @@ urlpatterns = [
     path('salir/', salir, name='salir'),
     path('login/', login, name='log'),
     path('inicio/', include('Usuarios.urls')),
+    
 ]

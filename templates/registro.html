@@ -14,9 +14,11 @@
         <a href="{% url 'log' %}">Iniciar sesion</a><br>
         <a href="{% url 'pag' %}">Volver a la pagina principal</a><br>
         {% if messages %}
-            {% for msg in messages %}
-            <b>{{msg}}</b>
-        {% endfor %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.success %} class="{{ message.success }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
         {% endif %}
     </form>
 </center>

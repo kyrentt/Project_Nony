@@ -44,6 +44,7 @@ def etiqueta(request):
                               e_m(Musica=k, correo=request.session['mail']).save()
                   elif k=='Otaku':
                         e_o(Otaku=k, correo=request.session['mail']).save()
+            messages.success(request, 'etiquetas guardadas')
             return render(request, 'etiquetas.html')
     else:
           return render(request, 'etiquetas.html')

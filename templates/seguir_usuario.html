@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguir Usuario</title>
+</head>
+<body>
+    <h1>Seguir Usuario</h1>
+    <form method="post" action="{% url 'seguir_usuario' %}">
+        {% csrf_token %}
+        <label for="nombre_usuario">Nombre de usuario a seguir:</label>
+        <input type="text" name="nombre_usuario" required>
+        <button type="submit">Seguir Usuario</button>
+    </form>
+</body>
+</html>
