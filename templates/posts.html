@@ -1,11 +1,11 @@
 {% extends 'plantilla.html' %}
-{% block title %}Postaer{%endblock%}
+{% block title %}Postear{%endblock%}
 {% block content %}
 
 
 
 <h1>Crear Post...</h1>
-<br /><br />
+<br />
 <div class='form-group'>
 <form method="POST">
   {% csrf_token %} {{ form.as_p }}

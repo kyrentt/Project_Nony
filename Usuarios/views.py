@@ -3,9 +3,16 @@ from django.shortcuts import render, redirect
 from .models import Post, e_d, e_g, e_l, e_m, e_o
 from django.template import Template, Context
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 from django.contrib import messages
 from .forms import PostForm
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -14,6 +21,7 @@ from .forms import PostForm
 class HomeView(ListView):
     model = Post
     template_name = "home.html"
+    ordering = ["-id"]
 
 
 class ArticleDetailView(DetailView):
@@ -30,8 +38,15 @@ class AddPostView(CreateView):
 
 class UpdatePostView(UpdateView):
     model = Post
+    form_class = PostForm
     template_name = "editar_posts.html"
-    fields = ["titulo", "titulo_post", "cuerpo"]
+    # fields = ["titulo", "titulo_post", "cuerpo"]
+
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = "borrar_posts.html"
+    success_url = reverse_lazy("home")
 
 
 # etiquetas

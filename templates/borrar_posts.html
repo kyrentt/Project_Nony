@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+{% block title %}Borrar Posts{%endblock%}
+{% block content %}
+
+
+
+<br />
+<h3>Borrar: {{ post.titulo }}</h3>
+
+<br/>
+<div class='form-group'>
+<form method="POST">
+  {% csrf_token %}
+  <strong>Estas seguro de querer borrarlo?!</strong><br/><br/>
+  <button class="btn btn-secondary">Borrar</button>
+</div>
+
+
+
+
+
+ 
+{% endblock %}
