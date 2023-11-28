@@ -1,20 +1,81 @@
 {% extends 'plantilla.html' %}
-{% block title %}Editar Posts{%endblock%}
+
+{% block title %}
+    Editar Posts
+{% endblock %}
+
 {% block content %}
+<style>
+    body {
+        background-color: #111; /* Negro */
+        color: #fff; /* Blanco */
+        font-family: Arial, sans-serif;
+    }
 
+    h1 {
+        color: #3498db; /* Azul oscuro */
+    }
 
+    .form-group {
+        color: #2c3e50; /* Otro tono de azul oscuro para el texto del formulario */
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #2c3e50;
+        border-radius: 8px;
+        display: inline-block;
+    }
+
+    form {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .btn-secondary {
+        background-color: #34495e; /* Fondo del botón en azul oscuro */
+        color: #fff; /* Texto del botón en blanco */
+        padding: 8px 12px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    .btn-secondary:hover {
+        background-color: #2c3e50; /* Fondo del botón más oscuro al pasar el mouse */
+    }
+
+    .contact-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #2c3e50;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .contacts {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .contact {
+        padding: 10px;
+        border: 1px solid #3498db;
+        border-radius: 4px;
+    }
+</style>
 
 <h1>Editar Post...</h1>
-<br />
+<br /><br />
 <div class='form-group'>
-<form method="POST">
-  {% csrf_token %} {{ form.as_p }}
-  <button class="btn btn-secondary">Actualizar</button>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Actualizar</button>
+    </form>
 </div>
 
+<!-- Contactos -->
 
-
-
-
- 
 {% endblock %}

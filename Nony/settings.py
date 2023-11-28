@@ -78,9 +78,9 @@ WSGI_APPLICATION = "Nony.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "dat4",
+        "NAME": "login",
         "USER": "postgres",
-        "PASSWORD": "@1357908642AbC",
+        "PASSWORD": "password",
         "HOST": "127.0.0.1",
         "FATABASE_PORT": "5432",
     }

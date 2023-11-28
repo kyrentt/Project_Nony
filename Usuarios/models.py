@@ -26,31 +26,62 @@ class Post(models.Model):
 
 
 # etiquetas
-
+#etiquetas
 
 class e_g(models.Model):
-    Gamer = models.TextField()
-    correo = models.EmailField()
-
+    Gamer=models.TextField()
+    correo=models.EmailField()
 
 class e_l(models.Model):
-    LQBTQ = models.TextField()
-    correo = models.EmailField()
-
+    LGBTQ=models.TextField()
+    correo=models.EmailField()
 
 class e_m(models.Model):
-    Musica = models.TextField()
-    correo = models.EmailField()
+    Música=models.TextField()
+    correo=models.EmailField()
 
-
-class e_o(models.Model):
-    Otaku = models.TextField()
-    correo = models.EmailField()
-
+class e_a(models.Model):
+    Anime=models.TextField()
+    correo=models.EmailField()
 
 class e_d(models.Model):
-    Deportista = models.TextField()
-    correo = models.EmailField()
+    Deportista=models.TextField()
+    correo=models.EmailField()
 
+class e_t(models.Model):
+    Tecnología=models.TextField()
+    correo=models.EmailField()
+
+class e_jm(models.Model):
+    jm=models.TextField()
+    correo=models.EmailField()
+
+class e_p(models.Model):
+    ep=models.TextField()
+    correo=models.EmailField()
+
+class e_s(models.Model):
+    Soltero=models.TextField()
+    correo=models.EmailField()
+
+class e_c(models.Model):
+    Cinéfilo=models.TextField()
+    correo=models.EmailField()
+
+class e_k(models.Model):
+    Kpop=models.TextField()
+    correo=models.EmailField()
+
+class e_pp(models.Model):
+    pp=models.TextField()
+    correo=models.EmailField()
+
+class e_pg(models.Model):
+    pg=models.TextField()
+    correo=models.EmailField()
 
 # Amigos
+
+class amigos(models.Model):
+    correo = models.EmailField()
+    list_amigos=models.TextField()

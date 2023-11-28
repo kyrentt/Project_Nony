@@ -1,25 +1,131 @@
-{% extends 'plantilla copy.html' %} {% block content %}
+{% extends 'plantilla copy.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #111;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+    }
+
+    h1 {
+        color: #3498db;
+    }
+
+    .form {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    label {
+        color: #3498db;
+        display: block;
+        margin: 10px 0;
+    }
+
+    input {
+        margin-bottom: 10px;
+        padding: 8px;
+        width: 200px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #34495e;
+        color: #fff;
+        padding: 8px 12px;
+        margin-top: 10px;
+        margin-right: 5px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    button:hover {
+        background-color: #2c3e50;
+    }
+
+    a {
+        color: #3498db;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+    }
+
+    a:hover {
+        color: #2980b9;
+    }
+
+    .messages {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .messages li {
+        color: #27ae60; /* Color verde para mensajes de éxito */
+    }
+
+    .contact-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #2c3e50;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .contacts {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .contact {
+        padding: 10px;
+        border: 1px solid #3498db;
+        border-radius: 4px;
+    }
+</style>
+
 <center>
-    <h1>Registrate</h1>
+    <h1>Regístrate</h1>
     <form class="form" method="post">
         {% csrf_token %}
         <label for="nom">Nombre</label>
         <input type="text" name="nom" placeholder="Nombre" required maxlength="30"><br>
+
         <label for="mail">Correo</label>
         <input type="email" name="mail" placeholder="Correo" pattern=".+@(usm.cl|sansano.cl)" required><br>
-        <label for="pass">Contrasena</label>
-        <input type="password" name="pass" placeholder="Contrasena" required maxlength="10"><br>
-        <button type="reset">restablecer</button>
-        <button type="submit">registrarse</button><br>
-        <a href="{% url 'log' %}">Iniciar sesion</a><br>
-        <a href="{% url 'pag' %}">Volver a la pagina principal</a><br>
+
+        <label for="pass">Contraseña</label>
+        <input type="password" name="pass" placeholder="Contraseña" required maxlength="10"><br>
+
+        <button type="reset">Restablecer</button>
+        <button type="submit">Registrarse</button><br>
+
+        <a href="{% url 'log' %}">Iniciar Sesión</a><br>
+        <a href="{% url 'pag' %}">Volver a la página principal</a><br>
+
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-            <li{% if message.success %} class="{{ message.success }}"{% endif %}>{{ message }}</li>
+            <li>{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}
     </form>
 </center>
+<!-- Contactos -->
+<div class="contact-box">
+    <h2>Contactos:</h2>
+    <div class="contacts">
+        <div class="contact">atapiaz@usm.cl</div>
+        <div class="contact">mfuentesba@usm.cl</div>
+        <div class="contact">mfloresb@usm.cl</div>
+        <div class="contact">afuenzalidag@usm.cl</div>
+    </div>
+</div>
 {% endblock %}

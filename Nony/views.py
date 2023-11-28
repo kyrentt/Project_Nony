@@ -26,7 +26,6 @@ def login(request):
     if request.method == 'POST':
         try:
             usu_existente= persona.objects.get(mail=request.POST['e_mail'], pas=request.POST['password'])
-            print('usuario= ', usu_existente)
             request.session['mail']=usu_existente.mail
             return render(request, 'home.html')
         except usu_existente.DoesNotExist as e:

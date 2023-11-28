@@ -6,6 +6,8 @@ from .views import (
     etiqueta,
     UpdatePostView,
     DeletePostView,
+    perfil,
+    perfil2,
 )
 
 urlpatterns = [
@@ -15,4 +17,6 @@ urlpatterns = [
     path("article/edit/<int:pk>", UpdatePostView.as_view(), name="update-post"),
     path("article/delete/<int:pk>", DeletePostView.as_view(), name="delete-post"),
     path("etiquetas/", etiqueta, name="eti"),
+    path('perfil/', perfil, name='perfil'),
+    path('perfil_de_otro_usuario/<str:name>/', perfil2, name='per2'),
 ]

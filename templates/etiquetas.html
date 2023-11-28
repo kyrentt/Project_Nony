@@ -3,34 +3,158 @@
 {% block content %}
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head>
     <title>Etiquetas disponibles</title>
-  </head>
-  <body>
+    <style>
+        body {
+            background-color: #111; /* Negro */
+            color: #fff; /* Blanco */
+            font-family: Arial, sans-serif; /* Establecer una fuente legible */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #3498db; /* Azul oscuro */
+        }
+
+        .center-container { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            color: #3498db; /* Azul oscuro para etiquetas */
+            margin-right: 10px; /* Espaciado a la derecha de las etiquetas */
+        }
+
+        input {
+            margin-bottom: 10px; /* Espaciado inferior para los checkboxes */
+        }
+
+        button {
+            background-color: #34495e; /* Fondo del botón en azul oscuro */
+            color: #fff; /* Texto del botón en blanco */
+            padding: 8px 12px; /* Añadir espacio alrededor del texto del botón */
+            margin-right: 10px; /* Espaciado a la derecha del botón */
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #2c3e50; /* Fondo del botón más oscuro al pasar el mouse */
+        }
+
+        a {
+            color: #3498db; /* Azul oscuro para el enlace */
+            margin-left: 10px; /* Espaciado a la izquierda del enlace */
+            text-decoration: none; /* Eliminar subrayado del enlace */
+        }
+
+        a:hover {
+            color: #2980b9; /* Azul más claro al pasar el mouse sobre el enlace */
+        }
+
+        .tag-box {
+            background-color: #2c3e50; /* Fondo del cuadro de etiquetas en azul oscuro */
+            padding: 10px; /* Espaciado interno del cuadro de etiquetas */
+            border-radius: 8px; /* Borde redondeado del cuadro de etiquetas */
+            margin-bottom: 20px; /* Espaciado inferior del cuadro de etiquetas */
+        }
+
+        .tag-box label {
+            margin-right: 10px; /* Espaciado a la derecha de las etiquetas dentro del cuadro */
+        }
+
+        .contact-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2c3e50;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .contact {
+            padding: 10px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
     <h1>¡Etiquetas disponibles!</h1>
-    <form method="GET">
-      <label for="Deportista">Deportista</label>
-      <input type="checkbox" id="Deportista" name="Deportista" value="Deportista" />
-      <br />
-      <label for="Gamer">Gamer</label>
-      <input type="checkbox" id="Gamer" name="Gamer" value="Gamer"/>
-      <br />
-      <label for="Otaku">Otaku</label>
-      <input type="checkbox" id="Otaku" name="Otaku" value="Otaku"/>
-      <br />
-      <label for="LGBTQ">LGBTQ</label>
-      <input type="checkbox" id="LGBTQ" name="LGBTQ" value="LGBTQ"/>
-      <br />
-      <label for="Musica">Musica</label>
-      <input type="checkbox" id="Musica" name="Musica" value="Musica"/>
-      <br />
-      <button type="reset">Borrar elecciones</button>
-      <button type="submit">Enviar elecciones</button>
-      <a href="{% url 'salir' %}">Salir</a><a> </a><a href="{% url 'home'%}">home</a>  
-      </ul>   
-    </form>
-  </body>
+    <div class="center-container">
+        <div class="tag-box">
+            <form method="GET">
+                <label for="Deportista">Deportista</label>
+                <input type="checkbox" id="Deportista" name="Deportista" value="Deportista" />
+                <br />
+                <label for="Gamer">Gamer</label>
+                <input type="checkbox" id="Gamer" name="Gamer" value="Gamer" />
+                <br />
+                <label for="Otaku">Anime</label>
+                <input type="checkbox" id="Otaku" name="Otaku" value="Anime"/>
+                <br />
+                <label for="LGBTQ">LGBTQ</label>
+                <input type="checkbox" id="LGBTQ" name="LGBTQ" value="LGBTQ"/>
+                <br />
+                <label for="Musica">Música</label>
+                <input type="checkbox" id="Musica" name="Musica" value="Música"/>
+                <br />
+                <label for="Tecnología">Tecnología</label>
+                <input type="checkbox" id="Tecnología" name="Tecnología" value="Tecnología"/>
+                <br />
+                <label for="jm">Juegos de Mesa</label>
+                <input type="checkbox" id="jm" name="jm" value="Juegos de Mesa"/>
+                <br />
+                <label for="ep">En pareja</label>
+                <input type="checkbox" id="ep" name="ep" value="En pareja"/>
+                <br />
+                <label for="Soltero">Soltero/a</label>
+                <input type="checkbox" id="Soltero" name="Soltero" value="Soltero/a"/>
+                <br />
+                <label for="Cinéfilo">Cinéfilo</label>
+                <input type="checkbox" id="Cinéfilo" name="Cinéfilo" value="Cinéfilo"/>
+                <br />
+                <label for="Kpop">Kpop</label>
+                <input type="checkbox" id="Kpop" name="Kpop" value="Kpop"/>
+                <br />
+                <label for="pp">Persona de perros</label>
+                <input type="checkbox" id="pp" name="pp" value="Persona de perros"/>
+                <br />
+                <label for="pg">Persona de gatos</label>
+                <input type="checkbox" id="pg" name="pg" value="Persona de gatos"/>
+                <br />
+                <button type="reset">Borrar elecciones</button>
+                <button type="submit">Enviar elecciones</button>
+                <a href="{% url 'home'%}">Home</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+
 </html>
+
 
 {% endblock %}

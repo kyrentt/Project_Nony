@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Perfil</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .izquierda,
+        .derecha {
+            flex: 1;
+            text-align: left;
+        }
+
+        .informacion,
+        .tag-box,
+        .amigos {
+            background-color: #2c3e50;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag-box ul,
+        .amigos ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .tag-box li,
+        .amigos li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Perfil</h1>
+    <a class="nav-link" href="{% url 'home' %}">Home</a><a href="{% url 'perfil' %}">Volver a tu Perfil</a>
+
+    <div class="contenido">
+        <div class="izquierda">
+            <div class="informacion">
+                <p>Tu información</p>
+                <p>Nombre: {{ i }}</p>
+                <p>Correo: {% for a in a %}{{ a }}{% endfor %}</p>
+            </div>
+
+            <div class="tag-box">
+                <p>Etiquetas:</p>
+                <ul>
+                    {% for l in e %}
+                        <li>{{ l }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

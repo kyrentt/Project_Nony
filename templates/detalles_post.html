@@ -1,13 +1,91 @@
-{% extends 'plantilla.html' %} {% block title %} {{ post.titulo_post }}
-{%endblock %} {% block content %}
+{% extends 'plantilla.html' %}
 
-<h1>{{ post.titulo }}</h1>
-<small>Por: {{ post.autor.first_name}} {{ post.autor.last_name}} - {{ post.fecha_post }} - <a href='{% url 'update-post' post.pk %}'>Editar</a><a> </a><a href='{% url 'delete-post' post.pk %}'>Borrar</a>
-</small><br />
-<hr />
-{{ post.cuerpo }}
+{% block content %}
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
 
-<br /><br />
-<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+        h1 {
+            color: #3498db;
+        }
 
+        small {
+            color: #2c3e50;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+
+        hr {
+            border-color: #2c3e50;
+        }
+
+        .btn-secondary {
+            background-color: #34495e;
+            color: #fff;
+            padding: 8px 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2c3e50;
+        }
+
+        .contact-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2c3e50;
+            padding: 20px;
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: space-around;
+            color: #fff;
+        }
+
+        .contact {
+            padding: 10px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+        }
+    </style>
+
+    <h1>{{ post.titulo }}</h1>
+<small>Por: {{ post.autor.first_name}} {{ post.autor.last_name}} - {{ post.fecha_post }} - <a href='{% url 'update-post' post.pk %}'>Editar</a><a> </a><a href='{% url 'delete-post' post.pk %}'>Borrar</a></small><br>
+    <hr />
+    <br />
+    {{ post.cuerpo }}
+
+    <br /><br />
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+    <!-- Contactos -->
+    <div class="contact-box">
+        <h2>Contactos:</h2>
+        <div class="contacts">
+            <div class="contact">atapiaz@usm.cl</div>
+            <div class="contact">mfuentesba@usm.cl</div>
+            <div class="contact">mfloresb@usm.cl</div>
+            <div class="contact">afuenzalidag@usm.cl</div>
+        </div>
+    </div>
 {% endblock %}
